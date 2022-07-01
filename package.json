@@ -1,0 +1,7 @@
+{
+  "name": "@next-k8s/boilerplate",
+  "version": "1.0.1",
+  "scripts": {
+    "start": "skaffold dev"
+  }
+}
