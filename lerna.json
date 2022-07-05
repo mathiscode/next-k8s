@@ -1,0 +1,12 @@
+{
+  "packages": ["packages/*"],
+  "useNx": true,
+  "npmClient": "pnpm",
+  "version": "independent",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true
+    }
+  }
+}

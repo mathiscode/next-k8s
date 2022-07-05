@@ -2,6 +2,13 @@
   "name": "@next-k8s/boilerplate",
   "version": "1.0.4",
   "scripts": {
-    "start": "skaffold dev"
+    "start": "skaffold dev",
+    "graph": "nx graph",
+    "build": "lerna run build --concurrency=6",
+    "test": "lerna run test --no-sort"
+  },
+  "devDependencies": {
+    "lerna": "^5.1.6",
+    "nx": "^14.4.2"
   }
 }
