@@ -1,6 +1,7 @@
 **/node_modules
 .pnpm-debug.log
 
-auth
-client
-common
+# auth
+# client
+# common
+# tickets

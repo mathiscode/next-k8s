@@ -24,3 +24,11 @@ build:
         manual:
           - src: '**/*.ts*'
             dest: .
+    - image: mathiscode/k8s-boilerplate-service-tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .

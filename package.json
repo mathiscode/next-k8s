@@ -1,8 +1,7 @@
 {
   "name": "@next-k8s/boilerplate",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "scripts": {
-    "start": "kubectl apply -f infra/k8s",
-    "start:skaffold": "skaffold dev"
+    "start": "skaffold dev"
   }
 }
