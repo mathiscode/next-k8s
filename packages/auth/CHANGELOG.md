@@ -5,7 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.3 (2022-07-05)
 
-**Note:** Version bump only for package @next-k8s/nats-test
+**Note:** Version bump only for package @next-k8s/auth
 
 
 
@@ -13,7 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.2 (2022-07-05)
 
-**Note:** Version bump only for package @next-k8s/nats-test
+**Note:** Version bump only for package @next-k8s/auth
 
 
 
@@ -21,4 +21,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2022-07-05)
 
-**Note:** Version bump only for package @next-k8s/nats-test
+**Note:** Version bump only for package @next-k8s/auth
