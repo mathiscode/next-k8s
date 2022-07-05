@@ -2,7 +2,8 @@ import request from 'supertest'
 import mongoose from 'mongoose'
 
 import app from '../../app'
-import { getTokenCookie } from '../../test/utils'
+import { createTicket, getTokenCookie } from '../../test/utils'
+import natsClient from '../../nats-client'
 
 describe('[Update Ticket] Route: /api/tickets/:id', () => {
   it('should throw a NotFoundError if the ticket does not exist', async () => {
@@ -61,12 +62,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
 
   it('should throw an error on invalid ticket data', async () => {
     const cookie = await getTokenCookie()
-
-    const response = await request(app)
-      .post('/api/tickets')
-      .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
-      .expect(201)
+    const response = await createTicket(app, cookie)
     
     await request(app)
       .put(`/api/tickets/${response.body.ticket.id}`)
@@ -83,12 +79,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
 
   it('should update a ticket', async () => {
     const cookie = await getTokenCookie()
-
-    const response = await request(app)
-      .post('/api/tickets')
-      .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
-      .expect(201)
+    const response = await createTicket(app, cookie)
     
     const updated = await request(app)
       .put(`/api/tickets/${response.body.ticket.id}`)
@@ -100,5 +91,11 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
 
     expect(ticket.body.ticket.title).toEqual('New Event')
     expect(ticket.body.ticket.price).toEqual(23000)
+  })
+
+  it('should publish a ticket:updated event', async () => {
+    const cookie = await getTokenCookie()
+    await createTicket(app, cookie)
+    expect(natsClient.client.publish).toHaveBeenCalled()
   })
 })

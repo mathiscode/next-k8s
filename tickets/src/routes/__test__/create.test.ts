@@ -1,7 +1,16 @@
 import request from 'supertest'
 import app from '../../app'
 import Ticket from '../../models/ticket'
-import { getTokenCookie } from '../../test/utils'
+import natsClient from '../../nats-client'
+import { createTicket, getTokenCookie } from '../../test/utils'
+
+// const createTicket = (cookie?: string, title = 'Test Event', price = 20000, expectedStatusCode = 201) => {
+//   return request(app)
+//     .post('/api/tickets')
+//     .set('Cookie', cookie ? [cookie] : [])
+//     .send({ title, price })
+//     .expect(expectedStatusCode)
+// }
 
 describe('[Create New Ticket] Route: /api/tickets', () => {
   it('should be a valid route', async () => {
@@ -64,5 +73,11 @@ describe('[Create New Ticket] Route: /api/tickets', () => {
     expect(tickets.length).toEqual(1)
     expect(tickets[0].title).toEqual('Test Event')
     expect(tickets[0].price).toEqual(20000)
+  })
+
+  it('should publish a ticket:created event', async () => {
+    const cookie = await getTokenCookie()
+    await createTicket(app, cookie)
+    expect(natsClient.client.publish).toHaveBeenCalled()
   })
 })

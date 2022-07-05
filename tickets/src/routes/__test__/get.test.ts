@@ -1,7 +1,7 @@
 import request from 'supertest'
-import app from '../../app'
-import { getTokenCookie } from '../../test/utils'
 import mongoose from 'mongoose'
+import app from '../../app'
+import { createTicket, getTokenCookie } from '../../test/utils'
 
 describe('[Get Ticket] Route: /api/tickets/:id', () => {
   it('should throw a BadRequestError if ticket ID is invalid', async () => {
@@ -21,12 +21,7 @@ describe('[Get Ticket] Route: /api/tickets/:id', () => {
 
   it('should return the fetched ticket', async () => {
     const cookie = await getTokenCookie()
-
-    const response = await request(app)
-      .post('/api/tickets')
-      .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
-      .expect(201)
+    const response = await createTicket(app, cookie)
 
     const ticket = await request(app)
       .get(`/api/tickets/${response.body.ticket.id}`)

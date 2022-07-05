@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
 import { requireAuth, validateRequest } from '@next-k8s/common'
-// import { requireAuth } from '../../../common/src'
 
 import Ticket from '../models/ticket'
+import { TicketCreatedPublisher } from '../events/publishers/tickets/created'
+import natsClient from '../nats-client'
 
 const router = express.Router()
 
@@ -16,7 +17,7 @@ router.post('/api/tickets', requireAuth, validateInput, validateRequest, async (
   const { title, price } = req.body
   const ticket = new Ticket({ title, price, owner: req.currentUser!.id })
   await ticket.save()
-  
+  new TicketCreatedPublisher(natsClient.client).publish({ id: ticket.id, title: ticket.title, price: ticket.price, owner: ticket.owner })
   res.status(201).send({ ticket })
 })
 

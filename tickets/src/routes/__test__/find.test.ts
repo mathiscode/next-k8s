@@ -1,20 +1,12 @@
 import request from 'supertest'
 import app from '../../app'
-import { getTokenCookie } from '../../test/utils'
-
-const createTicket = (title = 'Test Event', price = 20000, cookie?: string, expectedStatusCode = 201) => {
-  return request(app)
-    .post('/api/tickets')
-    .set('Cookie', cookie ? [cookie] : [])
-    .send({ title, price })
-    .expect(expectedStatusCode)
-}
+import { createTicket, getTokenCookie } from '../../test/utils'
 
 describe('[List Tickets] Route: /api/tickets', () => {
   it('should return a list of tickets', async () => {
     const cookie = await getTokenCookie()
-    const ticketOneCreated = await createTicket('Test Event', 20000, cookie)
-    const ticketTwoCreated = await createTicket('Test Event 2', 40000, cookie)
+    await createTicket(app, cookie)
+    await createTicket(app, cookie, 'Test Event 2', 40000)
     const list = await request(app)
       .get('/api/tickets')
       .send()

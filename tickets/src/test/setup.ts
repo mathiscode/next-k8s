@@ -1,6 +1,8 @@
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import mongoose from 'mongoose'
 
+jest.mock('../nats-client.ts')
+
 let mongo: any
 process.env.JWT_KEY = '!SuperSecretDevToken!'
 
@@ -11,6 +13,7 @@ beforeAll(async () => {
 })
 
 beforeEach(async () => {
+  jest.clearAllMocks()
   const collections = await mongoose.connection.db.collections()
   for (const collection of collections) await collection.deleteMany({})
 })

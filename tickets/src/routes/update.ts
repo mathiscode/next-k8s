@@ -4,6 +4,8 @@ import { body } from 'express-validator'
 import { isValidObjectId } from 'mongoose'
 
 import Ticket from '../models/ticket'
+import TicketUpdatedPublisher from '../events/publishers/tickets/updated'
+import natsClient from '../nats-client'
 
 const router = express.Router()
 
@@ -17,8 +19,10 @@ router.put('/api/tickets/:id', requireAuth, validateInput, validateRequest, asyn
   const ticket = await Ticket.findById(req.params.id)
   if (!ticket) throw new NotFoundError()
   if (ticket.owner !== req.currentUser!.id) throw new UnauthorizedError()
-  ticket.set(req.body)
+  const { title, price } = req.body
+  ticket.set({ title, price })
   await ticket.save()
+  await new TicketUpdatedPublisher(natsClient.client).publish({ id: ticket.id, title: ticket.title, price: ticket.price, owner: ticket.owner })
   res.json(ticket)
 })
 
