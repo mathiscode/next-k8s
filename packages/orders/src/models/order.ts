@@ -1,8 +1,9 @@
 import mongoose, { ObjectId } from 'mongoose'
+import { OrderStatus } from '@next-k8s/common'
 
 interface OrderAttributes {
   owner: ObjectId;
-  status: string;
+  status: OrderStatus;
   expiresAt: Date;
   createdAt?: Date;
   updatedAt?: Date;
@@ -11,7 +12,7 @@ interface OrderAttributes {
 
 interface OrderDoc extends mongoose.Document {
   owner: ObjectId;
-  status: string;
+  status: OrderStatus;
   expiresAt: Date;
   createdAt?: Date;
   updatedAt?: Date;
