@@ -2,9 +2,10 @@
   "name": "@next-k8s/boilerplate",
   "version": "1.0.4",
   "scripts": {
-    "version:patch":"lerna version patch",
-    "version:minor":"lerna version minor",
-    "version:major":"lerna version major",
+    "version:patch": "lerna version patch",
+    "version:minor": "lerna version minor",
+    "version:major": "lerna version major",
+    "publish:all": "lerna publish",
     "start": "skaffold dev",
     "graph": "nx graph",
     "build": "lerna run build --concurrency=6",
