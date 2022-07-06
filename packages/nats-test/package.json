@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/nats-test",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "nats-test",
   "scripts": {
     "publisher": "ts-node-dev --rs --notify false src/publisher.ts",
