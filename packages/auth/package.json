@@ -7,7 +7,9 @@
     "start": "ts-node-dev --transpile-only --exit-child --watch src src/index.ts",
     "build": "tsc",
     "test": "jest --no-cache",
-    "test:watch": "jest --watchAll --no-cache"
+    "test:watch": "jest --watchAll --no-cache",
+    "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-auth .",
+    "docker:push": "docker push mathiscode/k8s-boilerplate-service-auth"
   },
   "publishConfig": {
     "access": "public"

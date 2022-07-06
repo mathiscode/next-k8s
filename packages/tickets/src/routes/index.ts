@@ -1,5 +1,3 @@
-import express, { Request, Response } from 'express'
-
 import getTicket from './get'
 import findTickets from './find'
 import createTicket from './create'

@@ -1,6 +1,6 @@
 {
-  "name": "@next-k8s/tickets",
-  "version": "1.0.9",
+  "name": "@next-k8s/rootdb",
+  "version": "1.0.0.",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "build": "tsc",
     "test": "jest --no-cache",
     "test:watch": "jest --watchAll --no-cache",
-    "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-tickets .",
-    "docker:push": "docker push mathiscode/k8s-boilerplate-service-tickets"
+    "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-orders .",
+    "docker:push": "docker push mathiscode/k8s-boilerplate-service-orders"
   },
   "publishConfig": {
     "access": "public"
@@ -25,7 +25,7 @@
     ]
   },
   "dependencies": {
-    "@next-k8s/common": "^0.1.23",
+    "@next-k8s/common": "*",
     "@types/cookie-session": "^2.0.44",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
@@ -50,6 +50,5 @@
     "mongodb-memory-server": "^8.6.0",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.4"
-  },
-  "gitHead": "69cf835d14423f902c78cb511d77ef4299b61b79"
+  }
 }

@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+import mongoose, { ObjectId } from 'mongoose'
 
 interface TicketAttributes {
   title: String;
   price: Number;
-  owner: String;
+  owner: ObjectId;
   createdAt?: Date;
   updatedAt?: Date;
 }

@@ -10,6 +10,8 @@ export * from './middleware/error-handler'
 export * from './middleware/require-auth'
 export * from './middleware/validate-request'
 
+export * from './events/types/order-status'
+
 export * from './events/_Listener'
 export * from './events/_Publisher'
 export * from './events/_Subjects'
