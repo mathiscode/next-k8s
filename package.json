@@ -2,6 +2,7 @@
   "name": "@next-k8s/boilerplate",
   "version": "1.0.4",
   "scripts": {
+    "version":"lerne version",
     "start": "skaffold dev",
     "graph": "nx graph",
     "build": "lerna run build --concurrency=6",
