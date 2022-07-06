@@ -24,6 +24,7 @@ __exportStar(require("./middleware/current-user"), exports);
 __exportStar(require("./middleware/error-handler"), exports);
 __exportStar(require("./middleware/require-auth"), exports);
 __exportStar(require("./middleware/validate-request"), exports);
+__exportStar(require("./events/types/order-status"), exports);
 __exportStar(require("./events/_Listener"), exports);
 __exportStar(require("./events/_Publisher"), exports);
 __exportStar(require("./events/_Subjects"), exports);

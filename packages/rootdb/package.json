@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/rootdb",
-  "version": null,
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -50,5 +50,6 @@
     "mongodb-memory-server": "^8.6.0",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.4"
-  }
+  },
+  "gitHead": "9ea6b6f92adaa41a3e45daa5e70f905766aca1a6"
 }

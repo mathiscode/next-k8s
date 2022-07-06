@@ -5,7 +5,7 @@
     "version:patch": "lerna version patch",
     "version:minor": "lerna version minor",
     "version:major": "lerna version major",
-    "publish:all": "lerna publish",
+    "publish:all": "lerna publish from-package",
     "docker:build": "lerna run docker:build",
     "docker:push": "lerna run docker:push",
     "start": "skaffold dev",
