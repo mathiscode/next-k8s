@@ -9,6 +9,9 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watchAll --no-cache"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
@@ -44,5 +47,6 @@
     "mongodb-memory-server": "^8.6.0",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.4"
-  }
+  },
+  "gitHead": "69cf835d14423f902c78cb511d77ef4299b61b79"
 }

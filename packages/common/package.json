@@ -28,5 +28,6 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "node-nats-streaming": "^0.3.2"
-  }
+  },
+  "gitHead": "69cf835d14423f902c78cb511d77ef4299b61b79"
 }
