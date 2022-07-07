@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/18</span>
+                <span class='fraction'>15/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/14</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,13 +91,13 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -109,14 +109,14 @@ import Order from '../models/order'
 &nbsp;
 const router = express.Router()
 &nbsp;
-router.delete('/api/orders/:id', requireAuth, <span class="fstat-no" title="function not covered" >async (r</span>eq: Request, res: Response) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!isValidObjectId(req.params.id)) <span class="cstat-no" title="statement not covered" >throw new BadRequestError('Invalid Ticket ID')</span></span>
-  const order = <span class="cstat-no" title="statement not covered" >await Order.findById(req.params.id).populate('ticket')</span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!order) <span class="cstat-no" title="statement not covered" >throw new NotFoundError('Order not found')</span></span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (order.owner.toHexString() !== req.currentUser!.id) <span class="cstat-no" title="statement not covered" >throw new NotFoundError('Order not found') /</span></span>/ same error to prevent probing
-<span class="cstat-no" title="statement not covered" >  order.status = OrderStatus.Cancelled</span>
-<span class="cstat-no" title="statement not covered" >  await order.save()</span>
-<span class="cstat-no" title="statement not covered" >  res.status(204).send({ order })</span>
+router.delete('/api/orders/:id', requireAuth, async (req: Request, res: Response) =&gt; {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!isValidObjectId(req.params.id)) <span class="cstat-no" title="statement not covered" >throw new BadRequestError('Invalid Ticket ID')</span>
+  const order = await Order.findById(req.params.id).populate('ticket')
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!order) <span class="cstat-no" title="statement not covered" >throw new NotFoundError('Order not found')</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (order.owner.toHexString() !== req.currentUser!.id) <span class="cstat-no" title="statement not covered" >throw new NotFoundError('Order not found') /</span>/ same error to prevent probing
+  order.status = OrderStatus.Cancelled
+  await order.save()
+  res.status(204).send({ order })
 })
 &nbsp;
 export default router
@@ -127,7 +127,7 @@ export default router
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jul 07 2022 17:26:13 GMT-0500 (Central Daylight Time)
+                at Thu Jul 07 2022 18:13:06 GMT-0500 (Central Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -81,18 +81,20 @@ describe('[Get an Order] Route: GET /api/orders/:id', () => {
     const ticket = new Ticket({ title: 'Test Event', price: 20000 })
     await ticket.save()
 
-    const { body: order } = await request(app)
+    const { body: orderResponse } = await request(app)
       .post('/api/orders')
       .set('Cookie', [cookie])
       .send({ ticketId: ticket.id })
       .expect(201)
 
+    const { order } = orderResponse
+
     const { body: details } = await request(app)
-      .get(`/api/orders/${order.order.id}`)
+      .get(`/api/orders/${order.id}`)
       .set('Cookie', [cookie])
       .send()
       .expect(200)
 
-    expect(details.order.id).toEqual(order.order.id)
+    expect(details.order.id).toEqual(order.id)
   })
 })

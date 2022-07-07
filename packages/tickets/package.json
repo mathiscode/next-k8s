@@ -6,8 +6,10 @@
   "scripts": {
     "start": "ts-node-dev --transpile-only --exit-child --watch src src/index.ts",
     "build": "tsc",
-    "test": "node --inspect-brk --inspect=29229 node_modules/jest/bin/jest.js --runInBand --no-cache",
-    "test:watch": "node --inspect-brk --inspect=29229 node_modules/jest/bin/jest.js --runInBand --watchAll --no-cache",
+    "test": "jest --no-cache",
+    "test:watch": "jest --watchAll --no-cache",
+    "test:debug": "node --inspect-brk --inspect=39229 node_modules/jest/bin/jest.js --runInBand --no-cache",
+    "test:debug:watch": "node --inspect-brk --inspect=39229 node_modules/jest/bin/jest.js --runInBand --watchAll --no-cache",
     "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-tickets .",
     "docker:push": "docker push mathiscode/k8s-boilerplate-service-tickets"
   },

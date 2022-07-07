@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657232773241" clover="3.2.0">
-  <project timestamp="1657232773241" name="All files">
-    <metrics statements="107" coveredstatements="96" conditionals="13" coveredconditionals="5" methods="19" coveredmethods="15" elements="139" coveredelements="116" complexity="0" loc="107" ncloc="107" packages="3" files="8" classes="8"/>
+<coverage generated="1657235586672" clover="3.2.0">
+  <project timestamp="1657235586672" name="All files">
+    <metrics statements="107" coveredstatements="103" conditionals="13" coveredconditionals="5" methods="19" coveredmethods="17" elements="139" coveredelements="125" complexity="0" loc="107" ncloc="107" packages="3" files="8" classes="8"/>
     <package name="src">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="app.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/orders/src/app.ts">
@@ -31,30 +31,30 @@
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
-        <line num="47" count="10" type="stmt"/>
-        <line num="48" count="10" type="stmt"/>
-        <line num="53" count="25" type="stmt"/>
+        <line num="47" count="12" type="stmt"/>
+        <line num="48" count="12" type="stmt"/>
+        <line num="53" count="28" type="stmt"/>
         <line num="55" count="4" type="stmt"/>
         <line num="56" count="4" type="stmt"/>
-        <line num="58" count="11" type="stmt"/>
+        <line num="58" count="14" type="stmt"/>
       </file>
       <file name="ticket.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/orders/src/models/ticket.ts">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
-        <line num="30" count="10" type="stmt"/>
-        <line num="31" count="10" type="stmt"/>
+        <line num="30" count="12" type="stmt"/>
+        <line num="31" count="12" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
-        <line num="37" count="7" type="stmt"/>
-        <line num="48" count="7" type="stmt"/>
+        <line num="37" count="8" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
         <line num="51" count="4" type="stmt"/>
         <line num="52" count="4" type="stmt"/>
-        <line num="54" count="28" type="stmt"/>
+        <line num="54" count="31" type="stmt"/>
       </file>
     </package>
     <package name="src.routes">
-      <metrics statements="71" coveredstatements="60" conditionals="13" coveredconditionals="5" methods="11" coveredmethods="9"/>
+      <metrics statements="71" coveredstatements="67" conditionals="13" coveredconditionals="5" methods="11" coveredmethods="11"/>
       <file name="create.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/orders/src/routes/create.ts">
         <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="1" count="4" type="stmt"/>
@@ -66,36 +66,36 @@
         <line num="9" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-        <line num="23" count="7" type="stmt"/>
-        <line num="24" count="7" type="stmt"/>
-        <line num="25" count="7" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="7" type="stmt"/>
-        <line num="28" count="7" type="stmt"/>
-        <line num="29" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="7" type="cond" truecount="0" falsecount="1"/>
-        <line num="33" count="7" type="stmt"/>
-        <line num="39" count="7" type="stmt"/>
-        <line num="40" count="7" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="cond" truecount="0" falsecount="1"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="29" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="8" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="8" type="stmt"/>
+        <line num="39" count="8" type="stmt"/>
+        <line num="40" count="8" type="stmt"/>
         <line num="43" count="4" type="stmt"/>
       </file>
       <file name="delete.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/orders/src/routes/delete.ts">
-        <metrics statements="14" coveredstatements="7" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
       </file>
       <file name="get.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/orders/src/routes/get.ts">

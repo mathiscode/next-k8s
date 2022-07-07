@@ -14,7 +14,7 @@
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "port": 29229
+      "port": 19229
     }
   ]
 }

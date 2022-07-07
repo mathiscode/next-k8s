@@ -5,6 +5,7 @@ import { getTokenCookie, OrderStatus } from '@next-k8s/common'
 import app from '../../app'
 import natsClient from '../../nats-client'
 import Ticket from '../../models/ticket'
+import Order from '../../models/order'
 
 describe('[Delete Order] Route: DELETE /api/orders/:id', () => {
   it('should throw a NotFoundError if the order does not exist', async () => {
@@ -45,15 +46,28 @@ describe('[Delete Order] Route: DELETE /api/orders/:id', () => {
       .expect(400)
   })
 
-  it('should throw an error on invalid order data', async () => {
-    
+  it('should cancel an order', async () => {
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
+    await ticket.save()
+
+    const { body: orderResponse } = await request(app)
+      .post(`/api/orders`)
+      .set('Cookie', [cookie])
+      .send({ ticketId: ticket.id })
+      .expect(201)
+
+    const { order } = orderResponse
+
+    await request(app)
+      .delete(`/api/orders/${order.id}`)
+      .set('Cookie', [cookie])
+      .send()
+      .expect(204)
+
+    const updatedOrder = await Order.findById(order.id)
+    expect(updatedOrder.status).toEqual(OrderStatus.Cancelled)
   })
 
-  it('should update a order', async () => {
-    
-  })
-
-  it('should publish a order:updated event', async () => {
-    
-  })
+  it.todo('should publish a order:cancelled event')
 })

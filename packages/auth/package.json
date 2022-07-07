@@ -8,6 +8,8 @@
     "build": "tsc",
     "test": "jest --no-cache",
     "test:watch": "jest --watchAll --no-cache",
+    "test:debug": "node --inspect-brk --inspect=19229 node_modules/jest/bin/jest.js --runInBand --no-cache",
+    "test:debug:watch": "node --inspect-brk --inspect=19229 node_modules/jest/bin/jest.js --runInBand --watchAll --no-cache",
     "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-auth .",
     "docker:push": "docker push mathiscode/k8s-boilerplate-service-auth"
   },
