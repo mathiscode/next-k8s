@@ -6,7 +6,7 @@ import { getTokenCookie } from '@next-k8s/common'
 import app from '../../app'
 import { createTicket } from '../../test/utils'
 
-describe('[List Tickets] Route: /api/tickets', () => {
+describe('[List Tickets] Route: GET /api/tickets', () => {
   it('should return a list of tickets', async () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     await createTicket(app, cookie)

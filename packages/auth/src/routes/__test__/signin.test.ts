@@ -7,7 +7,7 @@ beforeEach(() => {
       .send({ email: 'test@test.com', password: 'testpass' })
 })
 
-describe('Route: /api/users/signin', () => {
+describe('[User Signin] Route: POST /api/users/signin', () => {
   it('responds with 200 to successful signin request', async () => {
     return request(app)
       .post('/api/users/signin')

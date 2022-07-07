@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node-dev --transpile-only --exit-child --watch src src/index.ts",
     "build": "tsc",
-    "test": "jest --no-cache",
-    "test:watch": "jest --watchAll --no-cache",
+    "test": "node --inspect-brk --inspect=29229 node_modules/jest/bin/jest.js --runInBand --no-cache",
+    "test:watch": "node --inspect-brk --inspect=29229 node_modules/jest/bin/jest.js --runInBand --watchAll --no-cache",
     "docker:build": "docker build -t mathiscode/k8s-boilerplate-service-orders .",
     "docker:push": "docker push mathiscode/k8s-boilerplate-service-orders"
   },
@@ -16,7 +16,14 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "displayName": "@next-k8s/orders",
+    "collectCoverage": true,
+    "notify": true,
+    "notifyMode": "always",
     "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "build"
+    ],
     "roots": [
       "src"
     ],
@@ -48,6 +55,7 @@
     "@types/supertest": "^2.0.12",
     "jest": "^28.1.1",
     "mongodb-memory-server": "^8.6.0",
+    "node-notifier": "^10.0.1",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.4"
   },

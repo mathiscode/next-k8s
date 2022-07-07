@@ -18,7 +18,7 @@ router.put('/api/tickets/:id', requireAuth, validateInput, validateRequest, asyn
   if (!isValidObjectId(req.params.id)) throw new BadRequestError('Invalid Ticket ID')
   const ticket = await Ticket.findById(req.params.id)
   if (!ticket) throw new NotFoundError()
-  if (ticket.owner !== req.currentUser!.id) throw new UnauthorizedError()
+  if (ticket.owner.toHexString() !== req.currentUser!.id) throw new UnauthorizedError()
   const { title, price } = req.body
   ticket.set({ title, price })
   await ticket.save()

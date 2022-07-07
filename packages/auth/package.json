@@ -16,6 +16,10 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "displayName": "@next-k8s/auth",
+    "collectCoverage": true,
+    "notify": true,
+    "notifyMode": "always",
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "build"
@@ -47,6 +51,7 @@
     "@types/supertest": "^2.0.12",
     "jest": "^28.1.1",
     "mongodb-memory-server": "^8.6.0",
+    "node-notifier": "^10.0.1",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.4"
   },

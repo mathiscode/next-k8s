@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import request from 'supertest'
 import { getTokenCookie } from '@next-k8s/common'
 import app from '../../app'
@@ -5,7 +6,7 @@ import Ticket from '../../models/ticket'
 import natsClient from '../../nats-client'
 import { createTicket } from '../../test/utils'
 
-describe('[Create New Ticket] Route: /api/tickets', () => {
+describe('[Create New Ticket] POST /api/tickets', () => {
   it('should be a valid route', async () => {
     const response = await request(app).post('/api/tickets').send({})
     expect(response.status).not.toEqual(404)

@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Auth Service",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/packages/auth",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/packages/auth/node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--watchAll",
+        "--no-cache"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 19229
+    },
+
+    {
+      "name": "Debug Orders Service",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/packages/orders",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/packages/orders/node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--watchAll",
+        "--no-cache"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 29229
+    },
+
+    {
+      "name": "Debug Tickets Service",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/packages/tickets",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/packages/tickets/node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--watchAll",
+        "--no-cache"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 39229
+    }
+  ]
+}

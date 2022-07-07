@@ -1,7 +1,7 @@
 import request from 'supertest'
 import app from '../../app'
 
-describe('Route: /api/users/signup', () => {
+describe('[User Signup] Route: POST /api/users/signup', () => {
   it('responds with 201 to successful signup request', async () => {
     return request(app)
       .post('/api/users/signup')

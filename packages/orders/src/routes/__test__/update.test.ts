@@ -1,11 +1,12 @@
 import request from 'supertest'
 import mongoose from 'mongoose'
-import { getTokenCookie } from '@next-k8s/common'
+import { getTokenCookie, OrderStatus } from '@next-k8s/common'
 
 import app from '../../app'
 import natsClient from '../../nats-client'
+import Ticket from '../../models/ticket'
 
-describe('[Update Order] Route: /api/orders/:id', () => {
+describe('[Update Order] Route: PUT /api/orders/:id', () => {
   it('should throw a NotFoundError if the order does not exist', async () => {
     const id = new mongoose.Types.ObjectId().toHexString()
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
@@ -19,34 +20,18 @@ describe('[Update Order] Route: /api/orders/:id', () => {
 
   it('should throw an UnauthorizedError if not authenticated', async () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
+    await ticket.save()
 
     const response = await request(app)
-      .post(`/api/orders`)
+      .post('/api/orders')
       .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
+      .send({ ticketId: ticket.id })
       .expect(201)
 
     await request(app)
       .put(`/api/orders/${response.body.order.id}`)
-      .send({ title: 'Test Event', price: 23000 })
-      .expect(401)
-  })
-
-  it('should throw an UnauthorizedError if user does not own the order', async () => {
-    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
-
-    const response = await request(app)
-      .post(`/api/orders`)
-      .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
-      .expect(201)
-
-    const newCookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
-
-    await request(app)
-      .put(`/api/orders/${response.body.order.id}`)
-      .set('Cookie', [newCookie])
-      .send({ title: 'Test Event', price: 23000 })
+      .send({ status: OrderStatus.Cancelled })
       .expect(401)
   })
 
@@ -54,7 +39,7 @@ describe('[Update Order] Route: /api/orders/:id', () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
-      .put(`/api/orders/notarealid`)
+      .put('/api/orders/notarealid')
       .set('Cookie', [cookie])
       .send({ title: 'Test Event', price: 20000 })
       .expect(400)

@@ -21,13 +21,15 @@ const validateInput = [
 router.post('/api/orders', requireAuth, validateInput, validateRequest, async (req: Request, res: Response) => {
   const { ticketId } = req.body
   const ticket = await Ticket.findById(ticketId)
+  const tickets = await Ticket.find({})
+  if (!ticket) throw new NotFoundError('Ticket not found')
+
   const isReserved = await ticket.isReserved()
   const expiration = new Date()
   expiration.setSeconds(expiration.getSeconds() + Number(process.env.ORDER_EXPIRATION_WINDOW_SECONDS || DEFAULT_ORDER_EXPIRATION_WINDOW_SECONDS))
 
   if (isReserved) throw new BadRequestError('Order already exists for this ticket')
-  if (!ticket) throw new NotFoundError('Ticket not found')
-  
+
   const order = new Order({
     ticket,
     owner: req.currentUser!.id,

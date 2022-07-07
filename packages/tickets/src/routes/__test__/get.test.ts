@@ -5,7 +5,7 @@ import { getTokenCookie } from '@next-k8s/common'
 import app from '../../app'
 import { createTicket } from '../../test/utils'
 
-describe('[Get Ticket] Route: /api/tickets/:id', () => {
+describe('[Get Ticket] Route: GET /api/tickets/:id', () => {
   it('should throw a BadRequestError if ticket ID is invalid', async () => {
     await request(app)
       .get('/api/tickets/notarealid')

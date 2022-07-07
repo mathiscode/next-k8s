@@ -6,7 +6,7 @@ import app from '../../app'
 import { createTicket } from '../../test/utils'
 import natsClient from '../../nats-client'
 
-describe('[Update Ticket] Route: /api/tickets/:id', () => {
+describe('[Update Ticket] Route: PUT /api/tickets/:id', () => {
   it('should throw a NotFoundError if the ticket does not exist', async () => {
     const id = new mongoose.Types.ObjectId().toHexString()
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
@@ -34,19 +34,20 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should throw an UnauthorizedError if user does not own the ticket', async () => {
-    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    const users = [
+      await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() }),
+      await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    ]
 
     const response = await request(app)
       .post(`/api/tickets`)
-      .set('Cookie', [cookie])
+      .set('Cookie', [users[0]])
       .send({ title: 'Test Event', price: 20000 })
       .expect(201)
 
-    const newCookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
-
     await request(app)
       .put(`/api/tickets/${response.body.ticket.id}`)
-      .set('Cookie', [newCookie])
+      .set('Cookie', [users[1]])
       .send({ title: 'Test Event', price: 23000 })
       .expect(401)
   })
