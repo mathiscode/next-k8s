@@ -3,7 +3,7 @@ import mongoose, { ObjectId } from 'mongoose'
 interface TicketAttributes {
   title: String;
   price: Number;
-  owner: ObjectId;
+  owner: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -20,7 +20,7 @@ const ticketSchema = new mongoose.Schema({
   },
 
   owner: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true
   }
 }, {

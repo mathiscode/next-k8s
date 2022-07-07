@@ -1,9 +1,10 @@
 import mongoose, { ObjectId } from 'mongoose'
 import { OrderStatus } from '@next-k8s/common'
+import { TicketDoc } from './ticket'
 
 interface OrderAttributes {
-  owner: ObjectId;
-  status: OrderStatus;
+  owner: string;
+  status?: OrderStatus;
   expiresAt: Date;
   createdAt?: Date;
   updatedAt?: Date;
@@ -11,7 +12,7 @@ interface OrderAttributes {
 }
 
 interface OrderDoc extends mongoose.Document {
-  owner: ObjectId;
+  owner: string;
   status: OrderStatus;
   expiresAt: Date;
   createdAt?: Date;
@@ -27,7 +28,8 @@ const orderSchema = new mongoose.Schema({
 
   status: {
     type: String,
-    required: true
+    enum: Object.values(OrderStatus),
+    default: OrderStatus.Created
   },
 
   expiresAt: {
@@ -47,6 +49,8 @@ const orderSchema = new mongoose.Schema({
     }
   }
 })
+
+export { OrderStatus }
 
 export const OrderModel = mongoose.model('Order', orderSchema)
 export default class Order extends OrderModel {

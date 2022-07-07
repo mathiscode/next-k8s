@@ -1,16 +1,9 @@
 import request from 'supertest'
+import { getTokenCookie } from '@next-k8s/common'
 import app from '../../app'
 import Ticket from '../../models/ticket'
 import natsClient from '../../nats-client'
-import { createTicket, getTokenCookie } from '../../test/utils'
-
-// const createTicket = (cookie?: string, title = 'Test Event', price = 20000, expectedStatusCode = 201) => {
-//   return request(app)
-//     .post('/api/tickets')
-//     .set('Cookie', cookie ? [cookie] : [])
-//     .send({ title, price })
-//     .expect(expectedStatusCode)
-// }
+import { createTicket } from '../../test/utils'
 
 describe('[Create New Ticket] Route: /api/tickets', () => {
   it('should be a valid route', async () => {

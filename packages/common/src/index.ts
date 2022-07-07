@@ -17,3 +17,5 @@ export * from './events/_Publisher'
 export * from './events/_Subjects'
 export * from './events/tickets/created'
 export * from './events/tickets/updated'
+
+export * from './utilities/getTokenCookie'
