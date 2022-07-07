@@ -8,7 +8,7 @@ interface OrderAttributes {
   expiresAt: Date;
   createdAt?: Date;
   updatedAt?: Date;
-  ticket: TicketDoc;
+  ticket: TicketDoc | object;
 }
 
 interface OrderDoc extends mongoose.Document {

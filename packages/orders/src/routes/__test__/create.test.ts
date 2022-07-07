@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
 import request from 'supertest'
-import { getTokenCookie } from '@next-k8s/common'
+import { getTokenCookie, OrderStatus } from '@next-k8s/common'
 import app from '../../app'
 import Order from '../../models/order'
+import Ticket, { TicketModel } from '../../models/ticket'
 import natsClient from '../../nats-client'
 
 describe('[Create New Order] Route: /api/orders', () => {
@@ -41,6 +42,25 @@ describe('[Create New Order] Route: /api/orders', () => {
       .post('/api/orders')
       .set('Cookie', [cookie])
       .send({ ticketId: 'notarealid' })
+      .expect(400)
+  })
+
+  it('should throw BadRequestError if new order is already reserved', async () => {
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
+    await ticket.save()
+
+    const order = new Order({
+      ticket,
+      owner: Math.random().toString(36),
+      status: OrderStatus.Created,
+      expiresAt: new Date()
+    })
+
+    await order.save()
+    await request(app)
+      .post('/api/orders')
+      .set('Cookie', [cookie])
       .expect(400)
   })
 
