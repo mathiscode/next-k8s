@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/orders",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -25,7 +25,7 @@
     ]
   },
   "dependencies": {
-    "@next-k8s/common": "^0.1.26",
+    "@next-k8s/common": "^0.1.27",
     "@types/cookie-session": "^2.0.44",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.8",
