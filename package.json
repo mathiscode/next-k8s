@@ -10,6 +10,7 @@
     "version:patch": "lerna version patch",
     "version:minor": "lerna version minor",
     "version:major": "lerna version major",
+    "commit:quick": "git add . && git commit -m \"updates\"",
     "publish:all": "lerna publish from-package",
     "docker:build": "lerna run docker:build",
     "docker:push": "lerna run docker:push",
