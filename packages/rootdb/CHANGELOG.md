@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/mathiscode/next-k8s-boilerplate/compare/@next-k8s/rootdb@0.1.6...@next-k8s/rootdb@0.1.7) (2022-07-07)
+
+**Note:** Version bump only for package @next-k8s/rootdb
+
+
+
+
+
 ## [0.1.6](https://github.com/mathiscode/next-k8s-boilerplate/compare/@next-k8s/rootdb@0.1.5...@next-k8s/rootdb@0.1.6) (2022-07-07)
 
 **Note:** Version bump only for package @next-k8s/rootdb
