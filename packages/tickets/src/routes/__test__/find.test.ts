@@ -4,7 +4,7 @@ import { createTicket, getTokenCookie } from '../../test/utils'
 
 describe('[List Tickets] Route: /api/tickets', () => {
   it('should return a list of tickets', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     await createTicket(app, cookie)
     await createTicket(app, cookie, 'Test Event 2', 40000)
     const list = await request(app)

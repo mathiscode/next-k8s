@@ -20,7 +20,7 @@ describe('[Get Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should return the fetched ticket', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const response = await createTicket(app, cookie)
 
     const ticket = await request(app)

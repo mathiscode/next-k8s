@@ -8,7 +8,7 @@ import natsClient from '../../nats-client'
 describe('[Update Order] Route: /api/orders/:id', () => {
   it('should throw a NotFoundError if the order does not exist', async () => {
     const id = new mongoose.Types.ObjectId().toHexString()
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/orders/${id}`)
@@ -18,7 +18,7 @@ describe('[Update Order] Route: /api/orders/:id', () => {
   })
 
   it('should throw an UnauthorizedError if not authenticated', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     const response = await request(app)
       .post(`/api/orders`)
@@ -33,7 +33,7 @@ describe('[Update Order] Route: /api/orders/:id', () => {
   })
 
   it('should throw an UnauthorizedError if user does not own the order', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     const response = await request(app)
       .post(`/api/orders`)
@@ -41,7 +41,7 @@ describe('[Update Order] Route: /api/orders/:id', () => {
       .send({ title: 'Test Event', price: 20000 })
       .expect(201)
 
-    const newCookie = await getTokenCookie()
+    const newCookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/orders/${response.body.order.id}`)
@@ -51,7 +51,7 @@ describe('[Update Order] Route: /api/orders/:id', () => {
   })
 
   it('should throw a BadRequestError if an invalid order is provided', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/orders/notarealid`)

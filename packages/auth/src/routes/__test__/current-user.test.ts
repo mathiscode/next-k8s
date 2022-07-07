@@ -4,7 +4,7 @@ import { getTokenCookie } from '../../test/utils'
 
 describe('Route: /api/users/current', () => {
   it('responds with the current user', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     const response = await request(app)
       .get('/api/users/current')

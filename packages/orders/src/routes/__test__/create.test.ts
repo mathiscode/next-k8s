@@ -17,7 +17,7 @@ describe('[Create New Order] Route: /api/orders', () => {
   })
 
   it('should not get UnauthorizedError if authenticated', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const response = await request(app)
       .post('/api/orders')
       .set('Cookie', [cookie])
@@ -27,7 +27,7 @@ describe('[Create New Order] Route: /api/orders', () => {
   })
 
   it('should throw NotFoundError if ticket is not found', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const id = new mongoose.Types.ObjectId()
 
     await request(app)
@@ -36,7 +36,7 @@ describe('[Create New Order] Route: /api/orders', () => {
   })
 
   it('should throw BadRequestError if new order has invalid ticketId', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     await request(app)
       .post('/api/orders')
       .set('Cookie', [cookie])

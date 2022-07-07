@@ -8,7 +8,7 @@ import natsClient from '../../nats-client'
 describe('[Update Ticket] Route: /api/tickets/:id', () => {
   it('should throw a NotFoundError if the ticket does not exist', async () => {
     const id = new mongoose.Types.ObjectId().toHexString()
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/tickets/${id}`)
@@ -18,7 +18,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should throw an UnauthorizedError if not authenticated', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     const response = await request(app)
       .post(`/api/tickets`)
@@ -33,7 +33,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should throw an UnauthorizedError if user does not own the ticket', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     const response = await request(app)
       .post(`/api/tickets`)
@@ -41,7 +41,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
       .send({ title: 'Test Event', price: 20000 })
       .expect(201)
 
-    const newCookie = await getTokenCookie()
+    const newCookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/tickets/${response.body.ticket.id}`)
@@ -51,7 +51,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should throw a BadRequestError if an invalid ticket is provided', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
 
     await request(app)
       .put(`/api/tickets/notarealid`)
@@ -61,7 +61,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should throw an error on invalid ticket data', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const response = await createTicket(app, cookie)
     
     await request(app)
@@ -78,7 +78,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should update a ticket', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const response = await createTicket(app, cookie)
     
     const updated = await request(app)
@@ -94,7 +94,7 @@ describe('[Update Ticket] Route: /api/tickets/:id', () => {
   })
 
   it('should publish a ticket:updated event', async () => {
-    const cookie = await getTokenCookie()
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     await createTicket(app, cookie)
     expect(natsClient.client.publish).toHaveBeenCalled()
   })
