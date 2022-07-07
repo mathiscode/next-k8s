@@ -2,28 +2,24 @@
   "name": "@next-k8s/boilerplate",
   "version": "1.0.4",
   "scripts": {
+    "scripts": "jq .scripts package.json",
     "start": "skaffold dev",
     "graph": "nx graph",
     "build": "lerna run build --concurrency=6",
     "test": "lerna run test --no-sort",
-
     "version:patch": "lerna version patch",
     "version:minor": "lerna version minor",
     "version:major": "lerna version major",
-
     "publish:all": "lerna publish from-package",
-
     "docker:build": "lerna run docker:build",
     "docker:push": "lerna run docker:push",
-
     "minikube:setup": "sh scripts/minikube-setup.sh",
-
     "pods": "kubectl get pods",
     "pods:ingress": "kubectl get pods -n ingress-nginx"
   },
-
   "devDependencies": {
     "lerna": "^5.1.6",
+    "node-jq": "^2.3.3",
     "nx": "^14.4.2"
   }
 }
