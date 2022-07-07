@@ -30,3 +30,4 @@ __exportStar(require("./events/_Publisher"), exports);
 __exportStar(require("./events/_Subjects"), exports);
 __exportStar(require("./events/tickets/created"), exports);
 __exportStar(require("./events/tickets/updated"), exports);
+__exportStar(require("./utilities/getTokenCookie"), exports);
