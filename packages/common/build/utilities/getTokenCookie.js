@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTokenCookie = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const getTokenCookie = (payload) => __awaiter(void 0, void 0, void 0, function* () {
+    payload = payload || {};
     payload.id = payload.id || Math.random().toString(36).slice(2);
+    payload.email = payload.email || 'test@test.com';
     const token = jsonwebtoken_1.default.sign(payload, process.env.JWT_KEY);
     const cookie = Buffer.from(JSON.stringify({ jwt: token })).toString('base64');
     return `session=${cookie}`;
