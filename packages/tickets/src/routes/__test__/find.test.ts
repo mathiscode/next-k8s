@@ -1,6 +1,10 @@
+
+import mongoose from 'mongoose'
 import request from 'supertest'
+import { getTokenCookie } from '@next-k8s/common'
+
 import app from '../../app'
-import { createTicket, getTokenCookie } from '../../test/utils'
+import { createTicket } from '../../test/utils'
 
 describe('[List Tickets] Route: /api/tickets', () => {
   it('should return a list of tickets', async () => {

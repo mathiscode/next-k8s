@@ -1,7 +1,7 @@
 import request from 'supertest'
 import mongoose from 'mongoose'
 import app from '../../app'
-import { getTokenCookie } from '../../test/utils'
+import { getTokenCookie } from '@next-k8s/common'
 
 describe('[Get Order] Route: /api/orders/:id', () => {
   it('should throw a BadRequestError if order ID is invalid', async () => {

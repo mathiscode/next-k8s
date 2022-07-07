@@ -1,8 +1,8 @@
 import request from 'supertest'
 import mongoose from 'mongoose'
+import { getTokenCookie } from '@next-k8s/common'
 
 import app from '../../app'
-import { getTokenCookie } from '../../test/utils'
 import natsClient from '../../nats-client'
 
 describe('[Update Order] Route: /api/orders/:id', () => {
