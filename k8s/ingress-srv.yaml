@@ -40,5 +40,5 @@ spec:
                 name: client-srv
                 port:
                   number: 3000
-    - host: k8s.local
+    - host: client-mathiscode.cloud.okteto.com
       http: &http_rules
