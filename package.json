@@ -6,7 +6,6 @@
     "type": "git",
     "url": "https://github.com/mathiscode/next-k8s"
   },
-
   "scripts": {
     "scripts": "jq .scripts package.json",
     "start": "skaffold dev",

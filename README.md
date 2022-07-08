@@ -13,12 +13,19 @@ It has been modernized and refactored to my own personal styling/organizational 
 The repository is managed with [Lerna](https://lerna.js.org) and enhanced with [NX](https://nx.dev/getting-started/intro).
 
 - [Next.K8S Boilerplate](#nextk8s-boilerplate)
-  - [Scripts](#scripts)
   - [Requirements](#requirements)
+  - [Scripts](#scripts)
   - [Notable files](#notable-files)
   - [Debugging](#debugging)
 
 ---
+
+## Requirements
+
+- Kubernetes cluster running with ingress-nginx
+  - With minikube, use `pnpm setup:minikube` and `pnpm setup:secrets` scripts
+- Hostfile mapping from skaffold.local to cluster IP
+  - Alternatively, update domain name in configuration
 
 ## Scripts
 
@@ -37,13 +44,6 @@ To see all available scripts, type `pnpm scripts`
 - `pnpm publish:quick`: for easy testing, commit, patch, and publish all packages
 - `pnpm docker:build`: build the docker images for all packages
 - `pnpm docker:push`: push the docker images for all packages
-
-## Requirements
-
-- Kubernetes cluster running with ingress-nginx
-  - With minikube, use `pnpm setup:minikube` and `pnpm setup:secrets` scripts
-- Hostfile mapping from skaffold.local to cluster IP
-  - Alternatively, update domain name in configuration
 
 ## Notable files
 
