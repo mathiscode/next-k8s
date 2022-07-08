@@ -27,7 +27,7 @@ build:
 # More info: https://www.okteto.com/docs/reference/manifest/#deploy
 deploy:
   commands:
-    - kubectl apply -f k8s
+    - kubectl apply -f k8s -n mathiscode
 
   endpoints:
     - path: /
