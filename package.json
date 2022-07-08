@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/boilerplate",
-  "description": "",
+  "description": "Next.js + Kubernetes microservices boilerplate application",
   "version": "1.0.4",
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "publish:all": "lerna publish from-package",
     "docker:build": "lerna run docker:build",
     "docker:push": "lerna run docker:push",
+    "docker:clean": "docker system prune && minikube ssh -- docker system prune",
     "setup:minikube": "sh setup/minikube-setup.sh",
     "setup:secrets": "sh setup/secrets-setup.sh",
     "pods": "kubectl get pods",

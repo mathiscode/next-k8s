@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657264817144" clover="3.2.0">
-  <project timestamp="1657264817145" name="All files">
-    <metrics statements="81" coveredstatements="78" conditionals="8" coveredconditionals="5" methods="11" coveredmethods="9" elements="100" coveredelements="92" complexity="0" loc="81" ncloc="81" packages="3" files="6" classes="6"/>
+<coverage generated="1657264914217" clover="3.2.0">
+  <project timestamp="1657264914217" name="All files">
+    <metrics statements="81" coveredstatements="79" conditionals="8" coveredconditionals="5" methods="11" coveredmethods="11" elements="100" coveredelements="95" complexity="0" loc="81" ncloc="81" packages="3" files="6" classes="6"/>
     <package name="src">
-      <metrics statements="23" coveredstatements="22" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="23" coveredstatements="23" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="app.ts" path="/home/j/code/next-k8s/packages/auth/src/app.ts">
-        <metrics statements="23" coveredstatements="22" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="23" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
@@ -26,7 +26,7 @@
         <line num="27" count="4" type="stmt"/>
         <line num="28" count="4" type="stmt"/>
         <line num="30" count="4" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
         <line num="34" count="4" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
       </file>

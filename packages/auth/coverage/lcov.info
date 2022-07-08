@@ -3,9 +3,9 @@ SF:src/app.ts
 FN:30,(anonymous_8)
 FN:30,(anonymous_9)
 FNF:2
-FNH:0
-FNDA:0,(anonymous_8)
-FNDA:0,(anonymous_9)
+FNH:2
+FNDA:2,(anonymous_8)
+FNDA:2,(anonymous_9)
 DA:1,4
 DA:2,4
 DA:3,4
@@ -26,11 +26,11 @@ DA:26,4
 DA:27,4
 DA:28,4
 DA:30,4
-DA:31,0
+DA:31,2
 DA:34,4
 DA:36,4
 LF:23
-LH:22
+LH:23
 BRDA:14,0,0,0
 BRF:1
 BRH:0
