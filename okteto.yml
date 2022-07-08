@@ -12,13 +12,13 @@ build:
   auth:
     context: auth
     dockerfile: auth/Dockerfile
-
-  # You can use the following env vars to refer to this image in your deploy commands:
-  #  - OKTETO_BUILD_CLIENT_REGISTRY: image registry
-  #  - OKTETO_BUILD_CLIENT_REPOSITORY: image repo
-  #  - OKTETO_BUILD_CLIENT_IMAGE: image name
-  #  - OKTETO_BUILD_CLIENT_TAG: image tag
   client:
+    context: client
+    dockerfile: client/Dockerfile
+  orders:
+    context: client
+    dockerfile: client/Dockerfile
+  tickets:
     context: client
     dockerfile: client/Dockerfile
 

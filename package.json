@@ -15,7 +15,8 @@
     "publish:all": "lerna publish from-package",
     "docker:build": "lerna run docker:build",
     "docker:push": "lerna run docker:push",
-    "minikube:setup": "sh scripts/minikube-setup.sh",
+    "setup:minikube": "sh setup/minikube-setup.sh",
+    "setup:secrets": "sh setup/secrets-setup.sh",
     "pods": "kubectl get pods",
     "pods:ingress": "kubectl get pods -n ingress-nginx"
   },

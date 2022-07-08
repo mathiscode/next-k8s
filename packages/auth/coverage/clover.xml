@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657235587001" clover="3.2.0">
-  <project timestamp="1657235587001" name="All files">
+<coverage generated="1657235983191" clover="3.2.0">
+  <project timestamp="1657235983191" name="All files">
     <metrics statements="81" coveredstatements="78" conditionals="8" coveredconditionals="5" methods="11" coveredmethods="9" elements="100" coveredelements="92" complexity="0" loc="81" ncloc="81" packages="3" files="6" classes="6"/>
     <package name="src">
       <metrics statements="23" coveredstatements="22" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="app.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/app.ts">
+      <file name="app.ts" path="/home/j/code/next-k8s/packages/auth/src/app.ts">
         <metrics statements="23" coveredstatements="22" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
@@ -33,7 +33,7 @@
     </package>
     <package name="src.models">
       <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="user.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/models/user.ts">
+      <file name="user.ts" path="/home/j/code/next-k8s/packages/auth/src/models/user.ts">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
@@ -49,7 +49,7 @@
     </package>
     <package name="src.routes">
       <metrics statements="48" coveredstatements="46" conditionals="7" coveredconditionals="5" methods="7" coveredmethods="7"/>
-      <file name="current-user.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/routes/current-user.ts">
+      <file name="current-user.ts" path="/home/j/code/next-k8s/packages/auth/src/routes/current-user.ts">
         <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
@@ -58,7 +58,7 @@
         <line num="7" count="2" type="cond" truecount="4" falsecount="0"/>
         <line num="10" count="4" type="stmt"/>
       </file>
-      <file name="signin.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/routes/signin.ts">
+      <file name="signin.ts" path="/home/j/code/next-k8s/packages/auth/src/routes/signin.ts">
         <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
@@ -77,7 +77,7 @@
         <line num="26" count="2" type="stmt"/>
         <line num="29" count="4" type="stmt"/>
       </file>
-      <file name="signout.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/routes/signout.ts">
+      <file name="signout.ts" path="/home/j/code/next-k8s/packages/auth/src/routes/signout.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
@@ -86,7 +86,7 @@
         <line num="6" count="1" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
       </file>
-      <file name="signup.ts" path="/home/j/code/upwork/Guy Thomas/code/microservices-course/ticketing-boilerplate/packages/auth/src/routes/signup.ts">
+      <file name="signup.ts" path="/home/j/code/next-k8s/packages/auth/src/routes/signup.ts">
         <metrics statements="20" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
