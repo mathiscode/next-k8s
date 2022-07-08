@@ -24,7 +24,6 @@ The repository is managed with [Lerna](https://lerna.js.org) and enhanced with [
 
 To see all available scripts, type `pnpm scripts`
 
-- `pnpm setup`: set minikube cluster and secrets
 - `pnpm setup:minikube`: startup or create a minikube cluster
 - `pnpm setup:secrets`: setup environment secrets
 - `pnpm start`: start the Skaffold development environment

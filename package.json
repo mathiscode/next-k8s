@@ -1,6 +1,12 @@
 {
   "name": "@next-k8s/boilerplate",
+  "description": "",
   "version": "1.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mathiscode/next-k8s"
+  },
+
   "scripts": {
     "scripts": "jq .scripts package.json",
     "start": "skaffold dev",
