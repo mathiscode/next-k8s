@@ -32,7 +32,7 @@ deploy:
   endpoints:
     - path: /
       service: client
-      port: 80
+      port: 3000
     - path: /api/users
       service: auth
       port: 3000
