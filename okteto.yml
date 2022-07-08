@@ -27,21 +27,21 @@ build:
 # More info: https://www.okteto.com/docs/reference/manifest/#deploy
 deploy:
   commands:
-    - kubectl apply -f k8s -n mathiscode
+    - kubectl apply -f k8s
 
-  endpoints:
-    - path: /
-      service: client
-      port: 3000
-    - path: /api/users
-      service: auth
-      port: 3000
-    - path: /api/orders
-      service: orders
-      port: 3000
-    - path: /api/tickets
-      service: tickets
-      port: 3000
+  # endpoints:
+  #   - path: /
+  #     service: client
+  #     port: 3000
+  #   - path: /api/users
+  #     service: auth
+  #     port: 3000
+  #   - path: /api/orders
+  #     service: orders
+  #     port: 3000
+  #   - path: /api/tickets
+  #     service: tickets
+  #     port: 3000
 
 # The dependencies section defines other git repositories to be deployed as part of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#dependencies
