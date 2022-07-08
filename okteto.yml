@@ -10,16 +10,16 @@ build:
   #  - OKTETO_BUILD_AUTH_IMAGE: image name
   #  - OKTETO_BUILD_AUTH_TAG: image tag
   auth:
-    context: auth
+    context: packages/auth
     dockerfile: packages/auth/Dockerfile
   client:
-    context: client
+    context: packages/client
     dockerfile: packages/client/Dockerfile
   orders:
-    context: client
+    context: packages/client
     dockerfile: packages/client/Dockerfile
   tickets:
-    context: client
+    context: packages/client
     dockerfile: packages/client/Dockerfile
 
 # The deploy section defines how to deploy your development environment
