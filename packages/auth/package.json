@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/auth",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
