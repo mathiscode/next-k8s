@@ -1,4 +1,4 @@
-name: ticketing-boilerplate
+name: next-k8s
 
 # The build section defines how to build the images of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#build
@@ -22,12 +22,26 @@ build:
     context: packages/client
     dockerfile: packages/client/Dockerfile
 
+
 # The deploy section defines how to deploy your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#deploy
 deploy:
   commands:
-    - name: Deploy
-      command: echo
+    - kubectl apply -f k8s
+
+  endpoints:
+    - path: /
+      service: client
+      port: 80
+    - path: /api/users
+      service: auth
+      port: 3000
+    - path: /api/orders
+      service: orders
+      port: 3000
+    - path: /api/tickets
+      service: tickets
+      port: 3000
 
 # The dependencies section defines other git repositories to be deployed as part of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#dependencies
@@ -35,15 +49,64 @@ deploy:
 #   - https://github.com/okteto/sample
 # The dev section defines how to activate a development container
 # More info: https://www.okteto.com/docs/reference/manifest/#dev
+# dev:
+#   sample:
+#     image: okteto/dev:latest
+#     command: bash
+#     workdir: /usr/src/app
+#     sync:
+#       - .:/usr/src/app
+#     environment:
+#       - name=$USER
+#     forward:
+#       - 8080:80
+
 dev:
   auth:
     autocreate: yes
     image: mathiscode/k8s-boilerplate-service-auth:latest
-    command: npm start
+    command: npm install && npm start
     workdir: /usr/src/app
     sync:
-      - .:/usr/src/app
+      - ./packages/auth:/usr/src/app
     environment:
       - JWT_KEY=supersecretdevkey
+      - MONGO_URI=mongodb://auth-mongo-srv:27017/auth
     forward:
-      - 3000:83000
+      - 3000:3000
+  client:
+    autocreate: yes
+    image: mathiscode/k8s-boilerplate-client:latest
+    command: npm install && npm start
+    workdir: /usr/src/app
+    sync:
+      - ./packages/auth:/usr/src/app
+    environment:
+      - JWT_KEY=supersecretdevkey
+      - MONGO_URI=mongodb://auth-mongo-srv:27017/auth
+    forward:
+      - 3000:3000
+  orders:
+    autocreate: yes
+    image: mathiscode/k8s-boilerplate-service-orders:latest
+    command: npm install && npm start
+    workdir: /usr/src/app
+    sync:
+      - ./packages/orders:/usr/src/app
+    environment:
+      - JWT_KEY=supersecretdevkey
+      - MONGO_URI=mongodb://orders-mongo-srv:27017/auth
+    forward:
+      - 3000:3000
+  tickets:
+    autocreate: yes
+    image: mathiscode/k8s-boilerplate-service-tickets:latest
+    command: npm install && npm start
+    workdir: /usr/src/app
+    sync:
+      - ./packages/orders:/usr/src/app
+    environment:
+      - JWT_KEY=supersecretdevkey
+      - MONGO_URI=mongodb://tickets-mongo-srv:27017/auth
+    forward:
+      - 3000:3000

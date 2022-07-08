@@ -51,7 +51,7 @@ To see all available scripts, type `pnpm scripts`
 - [skaffold.yaml](skaffold.yaml)
 - [packages/*](packages)
   - Microservice source files
-- [infra/*](infra)
+- [k8s/*](k8s)
   - Kubernetes configuration
 
 ## Debugging

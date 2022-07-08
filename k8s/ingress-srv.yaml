@@ -5,10 +5,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
+    dev.okteto.com/auto-ingress: "true"
+    dev.okteto.com/generate-host: "true"
 spec:
   rules:
     - host: skaffold.local
-      http:
+      http: &http_rules
         paths:
           - path: /api/users/?(.*)
             pathType: Prefix
@@ -38,3 +40,5 @@ spec:
                 name: client-srv
                 port:
                   number: 3000
+    - host: k8s.local
+      http: &http_rules
