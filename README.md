@@ -37,7 +37,7 @@ To see all available scripts, type `pnpm scripts`
 - `pnpm build`: build all packages (concurrency 6)
 - `pnpm test`: test all packages
 - `pnpm pods`: show current Kubernetes pods
-- `pnpm pods:ingress`: show the ingress-nginx pod
+- `pnpm pods:ingress`: show the ingress-nginx pods
 - `pnpm graph`: view the NX project graph
 - `pnpm version:[inc]`: increment version number; [inc] = major, minor, or patch
 - `pnpm commit:quick`: for easy testing, perform a commit with generic message

@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+
+// import natsClient from './nats-client'
 import app from './app'
 
 const start = async () => {

@@ -22,6 +22,9 @@ router.post('/api/orders', requireAuth, validateInput, validateRequest, async (r
   const { ticketId } = req.body
   const ticket = await Ticket.findById(ticketId)
   const tickets = await Ticket.find({})
+
+  console.log(ticketId, ticket, tickets)
+  
   if (!ticket) throw new NotFoundError('Ticket not found')
 
   const isReserved = await ticket.isReserved()
