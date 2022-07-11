@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@next-k8s/common': ^0.1.30
+  '@next-k8s/common': ^0.1.31
   '@types/body-parser': ^1.19.2
   '@types/cookie-session': ^2.0.44
   '@types/express': ^4.17.13
@@ -27,7 +27,7 @@ specifiers:
   typescript: ^4.7.3
 
 dependencies:
-  '@next-k8s/common': 0.1.30
+  '@next-k8s/common': 0.1.31
   '@types/cookie-session': 2.0.44
   '@types/express': 4.17.13
   '@types/jsonwebtoken': 8.5.8
@@ -653,8 +653,8 @@ packages:
       '@jridgewell/resolve-uri': 3.0.7
       '@jridgewell/sourcemap-codec': 1.4.13
 
-  /@next-k8s/common/0.1.30:
-    resolution: {integrity: sha512-weuxOM1+zCGCSgIjYa1dAyRgJISRODxl5tolxE/yeEorVoykI+UgHUEA1y60UprnjX+BBRvujuDzBtwAsnOIng==}
+  /@next-k8s/common/0.1.31:
+    resolution: {integrity: sha512-qhb0SVBXYk8lC+vJapYb2xq8zCjloDJ7PipLIW0gGLfC4IltNy2uqK9F/ruClrEU/GI7Hs5dSceMs0fS68RN+A==}
     dependencies:
       cookie-session: 2.0.0
       express: 4.18.1

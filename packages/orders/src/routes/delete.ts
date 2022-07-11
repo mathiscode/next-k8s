@@ -3,6 +3,8 @@ import express, { Request, Response } from 'express'
 import { isValidObjectId } from 'mongoose'
 
 import Order from '../models/order'
+import OrderCancelledPublisher from '../events/publishers/cancelled'
+import natsClient from '../nats-client'
 
 const router = express.Router()
 
@@ -13,6 +15,14 @@ router.delete('/api/orders/:id', requireAuth, async (req: Request, res: Response
   if (order.owner.toHexString() !== req.currentUser!.id) throw new NotFoundError('Order not found') // same error to prevent probing
   order.status = OrderStatus.Cancelled
   await order.save()
+
+  new OrderCancelledPublisher(natsClient.client).publish({
+    id: order.id,
+    ticket: {
+      id: order.ticket.id
+    }
+  })
+
   res.status(204).send({ order })
 })
 

@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 import { getTokenCookie } from '@next-k8s/common'
 
 import app from '../../app'
-import Order from '../../models/order'
 import Ticket from '../../models/ticket'
 
 describe('[Get my Orders] Route: GET /api/orders', () => {

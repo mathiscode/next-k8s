@@ -5,6 +5,8 @@ import { body } from 'express-validator'
 
 import Ticket from '../models/ticket'
 import Order from '../models/order'
+import OrderCreatedPublisher from '../events/publishers/created'
+import natsClient from '../nats-client'
 
 const DEFAULT_ORDER_EXPIRATION_WINDOW_SECONDS = 15 * 60
 
@@ -20,11 +22,7 @@ const validateInput = [
 
 router.post('/api/orders', requireAuth, validateInput, validateRequest, async (req: Request, res: Response) => {
   const { ticketId } = req.body
-  const ticket = await Ticket.findById(ticketId)
-  const tickets = await Ticket.find({})
-
-  console.log(ticketId, ticket, tickets)
-  
+  const ticket = await Ticket.findById(ticketId)  
   if (!ticket) throw new NotFoundError('Ticket not found')
 
   const isReserved = await ticket.isReserved()
@@ -40,6 +38,18 @@ router.post('/api/orders', requireAuth, validateInput, validateRequest, async (r
   })
 
   await order.save()
+
+  new OrderCreatedPublisher(natsClient.client).publish({
+    id: order.id,
+    status: order.status,
+    owner: order.owner,
+    expiresAt: order.expiresAt.toISOString(),
+    ticket: {
+      id: ticket.id,
+      price: ticket.price
+    }
+  })
+
   res.status(201).send({ order })
 })
 

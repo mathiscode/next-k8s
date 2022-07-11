@@ -28,6 +28,8 @@ __exportStar(require("./events/types/order-status"), exports);
 __exportStar(require("./events/_Listener"), exports);
 __exportStar(require("./events/_Publisher"), exports);
 __exportStar(require("./events/_Subjects"), exports);
+__exportStar(require("./events/orders/created"), exports);
+__exportStar(require("./events/orders/cancelled"), exports);
 __exportStar(require("./events/tickets/created"), exports);
 __exportStar(require("./events/tickets/updated"), exports);
 __exportStar(require("./utilities/getTokenCookie"), exports);

@@ -64,7 +64,7 @@ describe('[Create New Order] Route: POST /api/orders', () => {
       .expect(400)
   })
 
-  it('should create a new order', async () => {
+  it('should create a new order and publish the order:created event', async () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
     await ticket.save()
@@ -74,13 +74,7 @@ describe('[Create New Order] Route: POST /api/orders', () => {
       .set('Cookie', [cookie])
       .send({ ticketId: ticket.id })
       .expect(201)
-  })
 
-  it.todo('should publish an order:created event')
-  // , async () => {
-  //   const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
-  //   const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
-  //   await ticket.save()
-  //   expect(natsClient.client.publish).toHaveBeenCalled()
-  // })
+    expect(natsClient.client.publish).toHaveBeenCalled()
+  })
 })
