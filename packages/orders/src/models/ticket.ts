@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 import Order, { OrderStatus } from './order'
 
 interface TicketAttributes {
+  _id?: mongoose.Types.ObjectId;
+  id?: string;
   title: string;
   price: number;
 }
@@ -49,8 +51,14 @@ ticketSchema.methods.isReserved = async function () {
 }
 
 export const TicketModel = mongoose.model('Ticket', ticketSchema)
+
 export default class Ticket extends TicketModel {
   constructor(attributes: TicketAttributes) {
+    if (attributes?.id) {
+      attributes._id = new mongoose.Types.ObjectId(attributes.id)
+      delete attributes.id
+    }
+
     super(attributes)
   }
 }

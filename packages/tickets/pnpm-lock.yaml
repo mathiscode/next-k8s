@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@next-k8s/common': ^0.1.30
+  '@next-k8s/common': ^0.1.33
   '@types/body-parser': ^1.19.2
   '@types/cookie-session': ^2.0.44
   '@types/express': ^4.17.13
@@ -19,6 +19,7 @@ specifiers:
   mongodb-memory-server: ^8.6.0
   mongoose: ^6.3.5
   mongoose-bcrypt: ^1.9.0
+  mongoose-update-if-current: ^1.4.0
   node-nats-streaming: ^0.3.2
   node-notifier: ^10.0.1
   supertest: ^6.2.3
@@ -27,7 +28,7 @@ specifiers:
   typescript: ^4.7.3
 
 dependencies:
-  '@next-k8s/common': 0.1.30
+  '@next-k8s/common': 0.1.33
   '@types/cookie-session': 2.0.44
   '@types/express': 4.17.13
   '@types/jsonwebtoken': 8.5.8
@@ -39,6 +40,7 @@ dependencies:
   jsonwebtoken: 8.5.1
   mongoose: 6.3.5
   mongoose-bcrypt: 1.9.0
+  mongoose-update-if-current: 1.4.0_mongoose@6.3.5
   node-nats-streaming: 0.3.2
   ts-node-dev: 2.0.0_mdwa2u5d66aaselucuqqyziihu
   typescript: 4.7.3
@@ -653,8 +655,8 @@ packages:
       '@jridgewell/resolve-uri': 3.0.7
       '@jridgewell/sourcemap-codec': 1.4.13
 
-  /@next-k8s/common/0.1.30:
-    resolution: {integrity: sha512-weuxOM1+zCGCSgIjYa1dAyRgJISRODxl5tolxE/yeEorVoykI+UgHUEA1y60UprnjX+BBRvujuDzBtwAsnOIng==}
+  /@next-k8s/common/0.1.33:
+    resolution: {integrity: sha512-OMNES7oDpgNcI0NXFRI5zIsn1mRga29QwIJr2Km7wXKc0tvbL+t6bZEFzR7LTYlqX0PszTc1rR5NkkGy30VPFg==}
     dependencies:
       cookie-session: 2.0.0
       express: 4.18.1
@@ -1336,6 +1338,11 @@ packages:
     dependencies:
       depd: 2.0.0
       keygrip: 1.1.0
+    dev: false
+
+  /core-js/3.23.4:
+    resolution: {integrity: sha512-vjsKqRc1RyAJC3Ye2kYqgfdThb3zYnx9CrqoCcjMOENMtQPC7ZViBvlDxwYU/2z2NI/IPuiXw5mT4hWhddqjzQ==}
+    requiresBuild: true
     dev: false
 
   /create-require/1.1.1:
@@ -2700,6 +2707,18 @@ packages:
       - supports-color
     dev: false
 
+  /mongoose-update-if-current/1.4.0_mongoose@6.3.5:
+    resolution: {integrity: sha512-Rau2nvdiLExqXrSOwMMgDYQgf/fwTJQpPidTcT7C9UMQ282gTKXjDuh5vrjVvVQpfuvkiPis0tGHdXffaD54bg==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      mongoose: '>=5.0.0'
+    dependencies:
+      core-js: 3.23.4
+      kareem: 2.3.5
+      mongoose: 6.3.5
+      regenerator-runtime: 0.13.9
+    dev: false
+
   /mongoose/6.3.5:
     resolution: {integrity: sha512-Ho3b/MK3lFyb87NjzyVwrjCqQ5DuLsIPSMFYDuZjaIJNhZfHNPQIcUDR1RLZ0/l+uznwo0VBu3WSwdu8EfAZTA==}
     engines: {node: '>=12.0.0'}
@@ -3001,6 +3020,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: false
+
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
     dev: false
 
   /require-directory/2.1.1:

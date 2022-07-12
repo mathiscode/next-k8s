@@ -1,4 +1,5 @@
 import mongoose, { ObjectId } from 'mongoose'
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 
 interface TicketAttributes {
   title: String;
@@ -25,7 +26,6 @@ const ticketSchema = new mongoose.Schema({
   }
 }, {
   toJSON: {
-    versionKey: false,
     transform (doc, ret) {
       ret.id = ret._id
       delete ret._id
@@ -33,6 +33,9 @@ const ticketSchema = new mongoose.Schema({
     }
   }
 })
+
+ticketSchema.set('versionKey', 'version')
+ticketSchema.plugin(updateIfCurrentPlugin)
 
 export const TicketModel = mongoose.model('Ticket', ticketSchema)
 export default class Ticket extends TicketModel {

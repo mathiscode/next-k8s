@@ -11,7 +11,7 @@ export abstract class Listener<T extends Event> {
   abstract queueGroupName: string
   abstract onMessage (data: T['data'], msg: Message): void
   private client: Stan
-  protected ackWait = 5000
+  protected ackWait = Number(process.env.LISTENER_ACK_WAIT) || 5000
 
   constructor (client: Stan) {
     this.client = client

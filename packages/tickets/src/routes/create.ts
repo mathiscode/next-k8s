@@ -3,7 +3,7 @@ import { body } from 'express-validator'
 import { requireAuth, validateRequest } from '@next-k8s/common'
 
 import Ticket from '../models/ticket'
-import { TicketCreatedPublisher } from '../events/publishers/tickets/created'
+import TicketCreatedPublisher from '../events/publishers/created'
 import natsClient from '../nats-client'
 
 const router = express.Router()

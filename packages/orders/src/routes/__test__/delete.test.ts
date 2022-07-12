@@ -36,17 +36,7 @@ describe('[Delete Order] Route: DELETE /api/orders/:id', () => {
       .expect(401)
   })
 
-  it('should throw a BadRequestError if an invalid order is provided', async () => {
-    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
-
-    await request(app)
-      .put(`/api/orders/notarealid`)
-      .set('Cookie', [cookie])
-      .send({ title: 'Test Event', price: 20000 })
-      .expect(400)
-  })
-
-  it('should cancel an order', async () => {
+  it('should cancel an order and publish the order:cancelled event', async () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     const ticket = new Ticket({ title: 'Test Ticket', price: 20000 })
     await ticket.save()
@@ -67,7 +57,7 @@ describe('[Delete Order] Route: DELETE /api/orders/:id', () => {
 
     const updatedOrder = await Order.findById(order.id)
     expect(updatedOrder.status).toEqual(OrderStatus.Cancelled)
-  })
 
-  it.todo('should publish a order:cancelled event')
+    expect(natsClient.client.publish).toHaveBeenCalled()
+  })
 })

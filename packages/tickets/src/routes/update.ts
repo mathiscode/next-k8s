@@ -2,9 +2,8 @@ import { BadRequestError, NotFoundError, UnauthorizedError, validateRequest, req
 import express, { Request, Response } from 'express'
 import { body } from 'express-validator'
 import { isValidObjectId } from 'mongoose'
-
 import Ticket from '../models/ticket'
-import TicketUpdatedPublisher from '../events/publishers/tickets/updated'
+import TicketUpdatedPublisher from '../events/publishers/updated'
 import natsClient from '../nats-client'
 
 const router = express.Router()
