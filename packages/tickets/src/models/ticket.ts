@@ -2,9 +2,10 @@ import mongoose, { ObjectId } from 'mongoose'
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 
 interface TicketAttributes {
-  title: String;
-  price: Number;
+  title: string;
+  price: number;
   owner: string;
+  orderId?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -23,6 +24,10 @@ const ticketSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true
+  },
+
+  orderId: {
+    type: String
   }
 }, {
   toJSON: {

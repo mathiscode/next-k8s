@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Listener = void 0;
 class Listener {
     constructor(client) {
-        this.ackWait = 5000;
+        this.ackWait = Number(process.env.LISTENER_ACK_WAIT) || 5000;
         this.client = client;
     }
     subscriptionOptions() {

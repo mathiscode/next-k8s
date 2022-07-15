@@ -1,4 +1,5 @@
 import mongoose, { ObjectId } from 'mongoose'
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 import { OrderStatus } from '@next-k8s/common'
 import { TicketDoc } from './ticket'
 
@@ -18,6 +19,7 @@ interface OrderDoc extends mongoose.Document {
   createdAt?: Date;
   updatedAt?: Date;
   ticket: TicketDoc;
+  version: number;
 }
 
 const orderSchema = new mongoose.Schema({
@@ -49,6 +51,9 @@ const orderSchema = new mongoose.Schema({
     }
   }
 })
+
+orderSchema.set('versionKey', 'version')
+orderSchema.plugin(updateIfCurrentPlugin)
 
 export { OrderStatus }
 

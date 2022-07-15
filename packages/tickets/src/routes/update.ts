@@ -21,7 +21,7 @@ router.put('/api/tickets/:id', requireAuth, validateInput, validateRequest, asyn
   const { title, price } = req.body
   ticket.set({ title, price })
   await ticket.save()
-  await new TicketUpdatedPublisher(natsClient.client).publish({ id: ticket.id, title: ticket.title, price: ticket.price, owner: ticket.owner })
+  await new TicketUpdatedPublisher(natsClient.client).publish({ id: ticket.id, version: ticket.version, title: ticket.title, price: ticket.price, owner: ticket.owner })
   res.json(ticket)
 })
 

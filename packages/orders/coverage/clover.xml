@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657643710850" clover="3.2.0">
-  <project timestamp="1657643710850" name="All files">
-    <metrics statements="108" coveredstatements="106" conditionals="15" coveredconditionals="7" methods="19" coveredmethods="19" elements="142" coveredelements="132" complexity="0" loc="108" ncloc="108" packages="4" files="9" classes="9"/>
+<coverage generated="1657816731025" clover="3.2.0">
+  <project timestamp="1657816731025" name="All files">
+    <metrics statements="144" coveredstatements="144" conditionals="16" coveredconditionals="9" methods="25" coveredmethods="25" elements="185" coveredelements="178" complexity="0" loc="144" ncloc="144" packages="5" files="12" classes="12"/>
     <package name="src">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="app.ts" path="/home/j/code/next-k8s/packages/orders/src/app.ts">
@@ -24,6 +24,45 @@
         <line num="21" count="3" type="stmt"/>
       </file>
     </package>
+    <package name="src.events.listeners">
+      <metrics statements="27" coveredstatements="27" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <file name="_queue-group-name.ts" path="/home/j/code/next-k8s/packages/orders/src/events/listeners/_queue-group-name.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+      <file name="ticket-created.ts" path="/home/j/code/next-k8s/packages/orders/src/events/listeners/ticket-created.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="ticket-updated.ts" path="/home/j/code/next-k8s/packages/orders/src/events/listeners/ticket-updated.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="src.events.publishers">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="cancelled.ts" path="/home/j/code/next-k8s/packages/orders/src/events/publishers/cancelled.ts">
@@ -42,35 +81,44 @@
       </file>
     </package>
     <package name="src.models">
-      <metrics statements="23" coveredstatements="21" conditionals="5" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <metrics statements="32" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="8" coveredmethods="8"/>
       <file name="order.ts" path="/home/j/code/next-k8s/packages/orders/src/models/order.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="47" count="11" type="stmt"/>
-        <line num="48" count="11" type="stmt"/>
-        <line num="53" count="24" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="58" count="13" type="stmt"/>
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="49" count="11" type="stmt"/>
+        <line num="50" count="11" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="58" count="26" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="61" count="5" type="stmt"/>
+        <line num="63" count="13" type="stmt"/>
       </file>
       <file name="ticket.ts" path="/home/j/code/next-k8s/packages/orders/src/models/ticket.ts">
-        <metrics statements="14" coveredstatements="12" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
-        <line num="33" count="11" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="39" count="7" type="stmt"/>
-        <line num="50" count="7" type="stmt"/>
-        <line num="53" count="3" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="57" count="15" type="cond" truecount="4" falsecount="1"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="15" type="stmt"/>
+        <metrics statements="20" coveredstatements="20" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="5"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="38" count="11" type="stmt"/>
+        <line num="39" count="11" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="59" count="7" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="66" count="5" type="stmt"/>
+        <line num="68" count="5" type="stmt"/>
+        <line num="70" count="23" type="cond" truecount="5" falsecount="0"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="75" count="23" type="stmt"/>
+        <line num="76" count="23" type="stmt"/>
       </file>
     </package>
     <package name="src.routes">
@@ -100,8 +148,8 @@
         <line num="34" count="7" type="stmt"/>
         <line num="40" count="7" type="stmt"/>
         <line num="42" count="7" type="stmt"/>
-        <line num="53" count="7" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
       </file>
       <file name="delete.ts" path="/home/j/code/next-k8s/packages/orders/src/routes/delete.ts">
         <metrics statements="17" coveredstatements="17" conditionals="3" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -120,8 +168,8 @@
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
       </file>
       <file name="get.ts" path="/home/j/code/next-k8s/packages/orders/src/routes/get.ts">
         <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="1" methods="4" coveredmethods="4"/>

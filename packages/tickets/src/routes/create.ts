@@ -17,7 +17,7 @@ router.post('/api/tickets', requireAuth, validateInput, validateRequest, async (
   const { title, price } = req.body
   const ticket = new Ticket({ title, price, owner: req.currentUser!.id })
   await ticket.save()
-  new TicketCreatedPublisher(natsClient.client).publish({ id: ticket.id, title: ticket.title, price: ticket.price, owner: ticket.owner })
+  new TicketCreatedPublisher(natsClient.client).publish({ id: ticket.id, version: ticket.version, title: ticket.title, price: ticket.price, owner: ticket.owner })
   res.status(201).send({ ticket })
 })
 
