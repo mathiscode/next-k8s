@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.35](https://github.com/mathiscode/next-k8s/compare/@next-k8s/common@0.1.34...@next-k8s/common@0.1.35) (2022-07-15)
+
+**Note:** Version bump only for package @next-k8s/common
+
+
+
+
+
 ## [0.1.34](https://github.com/mathiscode/next-k8s/compare/@next-k8s/common@0.1.33...@next-k8s/common@0.1.34) (2022-07-12)
 
 **Note:** Version bump only for package @next-k8s/common
