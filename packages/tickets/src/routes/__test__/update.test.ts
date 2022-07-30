@@ -5,6 +5,7 @@ import { getTokenCookie } from '@next-k8s/common'
 import app from '../../app'
 import { createTicket } from '../../test/utils'
 import natsClient from '../../nats-client'
+import Ticket from '../../models/ticket'
 
 describe('[Update Ticket] Route: PUT /api/tickets/:id', () => {
   it('should throw a NotFoundError if the ticket does not exist', async () => {
@@ -99,5 +100,19 @@ describe('[Update Ticket] Route: PUT /api/tickets/:id', () => {
     const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
     await createTicket(app, cookie)
     expect(natsClient.client.publish).toHaveBeenCalled()
+  })
+
+  it('should reject updates to a reserved ticket', async () => {
+    const cookie = await getTokenCookie({ id: new mongoose.Types.ObjectId().toHexString() })
+    const response = await createTicket(app, cookie)
+    const ticket = await Ticket.findById(response.body.ticket.id)
+    ticket.set({ orderId: new mongoose.Types.ObjectId().toHexString() })
+    await ticket.save()
+
+    await request(app)
+      .put(`/api/tickets/${response.body.ticket.id}`)
+      .set('Cookie', [cookie])
+      .send({ title: 'Test Event 2', price: 33000 })
+      .expect(400)
   })
 })

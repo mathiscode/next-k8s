@@ -15,6 +15,8 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
     ticket.set({ orderId: data.id })
     await ticket.save()
 
+    const { id, version, price, title, owner, orderId } = ticket
+    await new TicketUpdatedPublisher(this.client).publish({ id, version, price, title, owner, orderId })
     msg.ack()
   }
 }

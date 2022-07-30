@@ -8,6 +8,12 @@ interface UserAttributes {
   updatedAt?: Date;
 }
 
+export interface UserDoc extends mongoose.Document {
+  email: string;
+  password: string;
+  verifyPassword(password: string): boolean;
+}
+
 const userSchema = new mongoose.Schema({
   email: {
     type: String,

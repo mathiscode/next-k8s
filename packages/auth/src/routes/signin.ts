@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import { body } from 'express-validator'
 import { UnauthorizedError, validateRequest } from '@next-k8s/common'
 
-import User from '../models/user'
+import User, { UserDoc } from '../models/user'
 
 const validateInput = [
   body('email').isEmail().withMessage('Email must be a valid email address'),
@@ -14,7 +14,7 @@ const router = express.Router()
 router.post('/api/users/signin', validateInput, validateRequest, async (req: Request, res: Response) => {
   const user = await User.findOne({ email: req.body.email }).exec()
   if (!user) throw new UnauthorizedError('Incorrect username or password', 401, req.body.email)
-  const validPassword = await user.verifyPassword(req.body.password)
+  const validPassword = await (user as UserDoc).verifyPassword(req.body.password)
   if (!validPassword) throw new UnauthorizedError('Incorrect username or password', 401, req.body.email)
 
   const token = jwt.sign({

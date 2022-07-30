@@ -24,7 +24,8 @@
     "setup:minikube": "sh setup/minikube-setup.sh",
     "setup:secrets": "sh setup/secrets-setup.sh",
     "pods": "kubectl get pods",
-    "pods:ingress": "kubectl get pods -n ingress-nginx"
+    "pods:ingress": "kubectl get pods -n ingress-nginx",
+    "update:common": "lerna add @next-k8s/common@latest"
   },
   "devDependencies": {
     "lerna": "^5.1.6",

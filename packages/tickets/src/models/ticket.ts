@@ -5,7 +5,6 @@ interface TicketAttributes {
   title: string;
   price: number;
   owner: string;
-  orderId?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }

@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 
 import natsClient from './nats-client'
 import app from './app'
+import OrderCreatedListener from './events/listeners/order-created'
+import OrderCancelledListener from './events/listeners/order-cancelled'
 
 const start = async () => {
   if (!process.env.JWT_KEY) throw new Error('JWT_KEY is undefined')
@@ -19,6 +21,9 @@ const start = async () => {
 
   process.on('SIGINT', () => natsClient.client.close())
   process.on('SIGTERM', () => natsClient.client.close())
+
+  new OrderCreatedListener(natsClient.client).listen()
+  new OrderCancelledListener(natsClient.client).listen()
 
   await mongoose.connect(process.env.MONGO_URI)
   console.log('Database connected!')

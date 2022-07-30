@@ -18,6 +18,7 @@ router.put('/api/tickets/:id', requireAuth, validateInput, validateRequest, asyn
   const ticket = await Ticket.findById(req.params.id)
   if (!ticket) throw new NotFoundError()
   if (ticket.owner.toHexString() !== req.currentUser!.id) throw new UnauthorizedError()
+  if (ticket.orderId) throw new BadRequestError('Ticket is reserved')
   const { title, price } = req.body
   ticket.set({ title, price })
   await ticket.save()

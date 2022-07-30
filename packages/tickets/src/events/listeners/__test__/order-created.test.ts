@@ -29,7 +29,7 @@ const setup = async () => {
 }
 
 describe('[Order Created] Listener', () => {
-  it('should set the ticket owner', async () => {
+  it('should set the ticket orderId', async () => {
     const { data, listener, message, ticket } = await setup()
     await listener.onMessage(data, message)
     const updatedTicket = await Ticket.findById(ticket.id)
@@ -40,5 +40,11 @@ describe('[Order Created] Listener', () => {
     const { data, listener, message } = await setup()
     await listener.onMessage(data, message)
     expect(message.ack).toHaveBeenCalled()
+  })
+
+  it('should publish a ticket:updated event', async () => {
+    const { data, listener, message } = await setup()
+    await listener.onMessage(data, message)
+    expect(natsClient.client.publish).toHaveBeenCalled()
   })
 })
