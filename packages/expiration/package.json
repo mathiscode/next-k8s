@@ -1,6 +1,6 @@
 {
   "name": "@next-k8s/expiration",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -34,7 +34,7 @@
     ]
   },
   "dependencies": {
-    "@next-k8s/common": "^0.1.35",
+    "@next-k8s/common": "^0.1.36",
     "bull": "^4.8.5",
     "node-nats-streaming": "^0.3.2",
     "ts-node-dev": "^2.0.0",
